@@ -7,7 +7,7 @@ onready var confirmation_container: Container = $Container/ConfirmationContainer
 
 func _input(_event : InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		hide()
+		toggle_visibility()
 
 func _on_visibility_changed():
 	if visible:
@@ -37,3 +37,9 @@ func show_confirmation() -> void:
 func hide_confirmation() -> void:
 	items.show()
 	confirmation_container.hide()
+
+func toggle_visibility() -> void:
+	if visible:
+		hide()
+	else:
+		show()

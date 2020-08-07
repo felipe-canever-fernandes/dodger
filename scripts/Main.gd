@@ -118,10 +118,6 @@ func _on_EnemySpawnTimer_timeout() -> void:
 func _on_Enemy_area_entered(_area : Area) -> void:
 	quit()
 
-func _input(_event : InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		pause_menu.show()
-
 func quit() -> void:
 	if Global.starting_level == 1:
 		if level > Global.high_level:
