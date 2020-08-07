@@ -105,7 +105,7 @@ texture={
 2d_render/layer_2="Player"
 2d_physics/layer_2="Enemies"
 2d_render/layer_3="Pickups"
-2d_physics/layer_3="Pickups"
+2d_physics/layer_3="Power-ups"
 2d_render/layer_4="Enemies"
 
 [rendering]

@@ -4,6 +4,9 @@ class_name Player
 
 onready var shape := $CollisionShape2D
 
+onready var shield: Sprite = $Shield
+onready var shield_timer: Timer = $Shield/Timer
+
 const ROTATION_SPEED := 25.0
 
 var extents := Vector2.ZERO
@@ -29,3 +32,15 @@ func _process(delta : float) -> void:
 		
 	position.y = clamp(position.y,
 		extents.y, get_viewport_rect().size.y - extents.y)
+
+func _on_ShieldTimer_timeout() -> void:
+	disable_shield()
+
+func enable_shield() -> void:
+	shield.show()
+	shape.call_deferred("set_disabled", true)
+	shield_timer.start()
+
+func disable_shield() -> void:
+	shield.hide()
+	shape.call_deferred("set_disabled", false)
