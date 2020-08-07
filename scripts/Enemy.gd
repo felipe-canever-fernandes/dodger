@@ -1,3 +1,3 @@
 tool
-extends NPC
+extends Spawnable
 class_name Enemy

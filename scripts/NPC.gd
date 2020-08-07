@@ -1,5 +1,5 @@
 extends Movable
-class_name NPC
+class_name Spawnable
 
 var direction := Vector2.ZERO
 var speed := 0.0

@@ -8,8 +8,6 @@ export(String, FILE) var main_menu_scene : String
 export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
 
-export(Array, PackedScene) onready var Pickups : Array
-
 onready var enemySpawnTimer := $EnemySpawnTimer
 onready var score_timer: Timer = $ScoreTimer
 
@@ -66,11 +64,11 @@ func instance(Scene : PackedScene, position : Vector2):
 func instance_player() -> void:
 	player = instance(Player, get_viewport_rect().size / 2)
 
-func instance_npc(Scene : PackedScene) -> NPC:
+func instance_npc(Scene: PackedScene) -> Spawnable:
 	npcSpawnPosition.unit_offset = random.randf()
 	var position := npcSpawnPosition.position
 	
-	var npc : NPC = instance(Scene, position)
+	var npc: Spawnable = instance(Scene, position)
 	
 	var middle := get_viewport_rect().size / 2
 	npc.direction = npc.position.direction_to(middle)
@@ -124,9 +122,6 @@ func quit() -> void:
 		
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(main_menu_scene)
-
-func _on_Invulnerability_area_entered(_area : Area) -> void:
-	player.enable_shield()
 
 func _on_PauseMenu_hide():
 	get_viewport().warp_mouse(player.position)
