@@ -7,6 +7,9 @@ export(String, FILE) var main_menu_scene : String
 
 export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
+export(PackedScene) onready var shield_scene: PackedScene
+
+export(float, 0, 1) var shield_spawn_chance := 0.05
 
 onready var enemySpawnTimer := $EnemySpawnTimer
 onready var score_timer: Timer = $ScoreTimer
@@ -127,3 +130,9 @@ func quit() -> void:
 
 func _on_PauseMenu_hide():
 	get_viewport().warp_mouse(player.position)
+
+func _on_PickupSpawnTimer_timeout() -> void:
+	if not random.randf() <= shield_spawn_chance:
+		return
+	
+	instance_spawnable(shield_scene)
