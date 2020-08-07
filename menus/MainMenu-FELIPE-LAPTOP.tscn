@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/NewGameButton.gd" type="Script" id=1]
+[ext_resource path="res://menus/QuitButton.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -20.0
+margin_right = 41.0
+margin_bottom = 20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 82.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 82.0
+margin_bottom = 20.0
+text = "New Game"
+script = ExtResource( 1 )
+game_scene = "res://levels/Main.tscn"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 82.0
+margin_bottom = 44.0
+text = "Quit"
+script = ExtResource( 2 )
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="CenterContainer/VBoxContainer/NewGameButton" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="CenterContainer/VBoxContainer/QuitButton" method="_on_pressed"]

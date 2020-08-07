@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/background.png" type="Texture" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/NewGameMenu.gd" type="Script" id=3]
+
+[node name="NewGameMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -300.1, 0 )
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+game_scene = "res://levels/Main.tscn"
+main_menu_scene = "res://menus/MainMenu.tscn"
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -177.0
+margin_top = -97.5
+margin_right = 177.0
+margin_bottom = 97.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 354.0
+margin_bottom = 195.0
+
+[node name="NewGameLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 354.0
+margin_bottom = 39.0
+text = "NEW GAME
+"
+align = 1
+
+[node name="StartFrom1Container" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 354.0
+margin_bottom = 82.0
+
+[node name="StartFrom1Button" type="Button" parent="CenterContainer/VBoxContainer/StartFrom1Container"]
+margin_right = 150.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 150, 0 )
+text = "Start From Level 1"
+
+[node name="StartFrom1Label" type="Label" parent="CenterContainer/VBoxContainer/StartFrom1Container"]
+margin_left = 154.0
+margin_right = 320.0
+margin_bottom = 39.0
+text = "You start from the first level
+The game saves your high score"
+
+[node name="Space" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 354.0
+margin_bottom = 104.0
+
+[node name="StartFromHighContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 108.0
+margin_right = 354.0
+margin_bottom = 147.0
+
+[node name="StartFromHighButton" type="Button" parent="CenterContainer/VBoxContainer/StartFromHighContainer"]
+margin_right = 150.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 150, 0 )
+text = "Start From Level ?"
+
+[node name="StartFromHighLabel" type="Label" parent="CenterContainer/VBoxContainer/StartFromHighContainer"]
+margin_left = 154.0
+margin_right = 354.0
+margin_bottom = 39.0
+text = "You start from your high level
+The game doesn't save your high score"
+
+[node name="Space2" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 151.0
+margin_right = 354.0
+margin_bottom = 169.0
+
+[node name="BackContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 173.0
+margin_right = 354.0
+margin_bottom = 195.0
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer/BackContainer"]
+margin_right = 150.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 150, 0 )
+text = "Main Menu"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartFrom1Container/StartFrom1Button" to="." method="_on_StartFrom1Button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartFromHighContainer/StartFromHighButton" to="." method="_on_StartFromHighButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackContainer/BackButton" to="." method="_on_BackButton_pressed"]

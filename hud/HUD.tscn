@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="CanvasLayer" parent="."]
+
+[node name="StatsContainer" type="MarginContainer" parent="Stats"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats/StatsContainer"]
+margin_right = 208.0
+margin_bottom = 40.0
+
+[node name="LevelContainer" type="VBoxContainer" parent="Stats/StatsContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelLabel" type="Label" parent="Stats/StatsContainer/HBoxContainer/LevelContainer"]
+margin_right = 100.0
+margin_bottom = 18.0
+text = "Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighLevelLabel" type="Label" parent="Stats/StatsContainer/HBoxContainer/LevelContainer"]
+margin_top = 22.0
+margin_right = 100.0
+margin_bottom = 40.0
+text = "High Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Control" parent="Stats/StatsContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 104.0
+margin_bottom = 40.0
+
+[node name="ScoreContainer" type="VBoxContainer" parent="Stats/StatsContainer/HBoxContainer"]
+margin_left = 108.0
+margin_right = 208.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="ScoreLabel" type="Label" parent="Stats/StatsContainer/HBoxContainer/ScoreContainer"]
+margin_right = 100.0
+margin_bottom = 18.0
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreLabel" type="Label" parent="Stats/StatsContainer/HBoxContainer/ScoreContainer"]
+margin_top = 22.0
+margin_right = 100.0
+margin_bottom = 40.0
+text = "High Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Messages" type="CanvasLayer" parent="."]
+
+[node name="LevelLabel" type="Label" parent="Messages"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 11.0
+theme = ExtResource( 2 )
+text = "LEVEL"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
+
+[node name="MainMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+new_game_scene = "res://menus/NewGameMenu.tscn"
+game_scene = "res://levels/Main.tscn"
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -104.5
+margin_right = 45.0
+margin_bottom = 104.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 90.0
+margin_bottom = 209.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 39.0
+text = "DODGER
+"
+align = 1
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 90.0
+margin_bottom = 65.0
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 69.0
+margin_right = 90.0
+margin_bottom = 91.0
+text = "Quit"
+
+[node name="Space" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 95.0
+margin_right = 90.0
+margin_bottom = 113.0
+align = 1
+
+[node name="HighScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 117.0
+margin_right = 90.0
+margin_bottom = 135.0
+text = "High Score"
+align = 1
+
+[node name="ResetHighScoreButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 139.0
+margin_right = 90.0
+margin_bottom = 161.0
+text = "Reset High Score"
+
+[node name="HighLevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 165.0
+margin_right = 90.0
+margin_bottom = 183.0
+text = "High Level"
+align = 1
+
+[node name="ResetHighLevelButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 187.0
+margin_right = 90.0
+margin_bottom = 209.0
+text = "Reset High Level"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetHighScoreButton" to="." method="_on_ResetHighScoreButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetHighLevelButton" to="." method="_on_ResetHighLevelButton_pressed"]
