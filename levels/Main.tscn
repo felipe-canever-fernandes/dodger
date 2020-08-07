@@ -1,14 +1,80 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://entities/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/EnemySpawnTimer.gd" type="Script" id=5]
-[ext_resource path="res://entities/Invulnerability.tscn" type="PackedScene" id=6]
-[ext_resource path="res://entities/SlowMotion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/NPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/shield.png" type="Texture" id=7]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menus/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://textures/slow_motion.png" type="Texture" id=10]
+
+[sub_resource type="GDScript" id=2]
+script/source = "tool
+extends NPC
+class_name Pickup
+
+var pickable := true setget set_pickable, get_pickable
+
+func set_pickable(value: bool) -> void:
+	set_collision_mask_bit(0, value)
+
+func get_pickable() -> bool:
+	return get_collision_mask_bit(0)
+
+func _on_area_entered(_area: Area2D):
+	queue_free()
+"
+
+[sub_resource type="PackedScene" id=3]
+_bundled = {
+"base_scene": 0,
+"conn_count": 1,
+"conns": PoolIntArray( 1073741826, 1073741825, 8, 7, 2, 0 ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Pickup", "pickups", "collision_layer", "collision_mask", "script", "VisibilityNotifier2D", "rect", "_on_area_entered", "area_entered" ),
+"node_count": 2,
+"node_paths": [ NodePath("."), NodePath("."), NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 2147483647, 0, -1, 3, 2, 1, 3, 2, 4, 3, 1, 1, 1073741824, -1, 2147483647, 786437, -1, 1, 6, 4, 0 ),
+"variants": [ ExtResource( 6 ), 4, 1, SubResource( 2 ), Rect2( -8, -8, 16, 16 ) ],
+"version": 2
+}
+
+[sub_resource type="GDScript" id=4]
+
+[sub_resource type="PackedScene" id=5]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Invulnerability", "position", "script", "Sprite", "texture" ),
+"node_count": 2,
+"node_paths": [ NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 2147483647, 0, -1, 2, 1, 1, 2, 2, 0, 1073741824, -1, 2147483647, 262147, -1, 1, 4, 3, 0 ),
+"variants": [ SubResource( 3 ), Vector2( 0, -0.44545 ), SubResource( 4 ), ExtResource( 7 ) ],
+"version": 2
+}
+
+[sub_resource type="GDScript" id=6]
+script/source = "
+"
+
+[sub_resource type="PackedScene" id=7]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "SlowMotion", "position", "script", "Sprite", "texture" ),
+"node_count": 2,
+"node_paths": [ NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 2147483647, 0, -1, 2, 1, 1, 2, 2, 0, 1073741824, -1, 2147483647, 262147, -1, 1, 4, 3, 0 ),
+"variants": [ SubResource( 3 ), Vector2( 0, -0.44545 ), SubResource( 6 ), ExtResource( 10 ) ],
+"version": 2
+}
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -20,8 +86,7 @@ script = ExtResource( 2 )
 main_menu_scene = "res://menus/MainMenu.tscn"
 Player = ExtResource( 1 )
 Enemy = ExtResource( 3 )
-Pickups = [ ExtResource( 6 ), ExtResource( 7 ) ]
-pickup_spawn_chance = 0.01
+Pickups = [ SubResource( 5 ), SubResource( 7 ) ]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -43,9 +108,6 @@ __meta__ = {
 wait_time = 30.0
 autostart = true
 
-[node name="PickupSpawnTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
@@ -53,10 +115,6 @@ autostart = true
 script = ExtResource( 5 )
 initial_wait_time = 1.0
 wait_time_decrement = 0.025
-
-[node name="SlowMotionTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
 
 [node name="NPCSpawner" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -75,8 +133,6 @@ visible = false
 [connection signal="level_changed" from="." to="HUDLayer/HUD" method="_on_Main_level_changed"]
 [connection signal="score_changed" from="." to="HUDLayer/HUD" method="_on_Main_score_changed"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
-[connection signal="timeout" from="PickupSpawnTimer" to="." method="_on_PickupSpawnTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
-[connection signal="timeout" from="SlowMotionTimer" to="." method="_on_SlowMotionTimer_timeout"]
 [connection signal="hide" from="HUDLayer/PauseMenu" to="." method="_on_PauseMenu_hide"]

@@ -4,9 +4,6 @@ class_name Player
 
 onready var shape := $CollisionShape2D
 
-onready var shield := $Shield
-onready var shield_timer := $Shield/Timer
-
 const ROTATION_SPEED := 25.0
 
 var extents := Vector2.ZERO
@@ -32,13 +29,3 @@ func _process(delta : float) -> void:
 		
 	position.y = clamp(position.y,
 		extents.y, get_viewport_rect().size.y - extents.y)
-
-func enable_shield() -> void:
-	set_collision_layer_bit(0, false)
-	
-	shield.visible = true
-	shield_timer.start()
-
-func _on_ShieldTimer_timeout():
-	set_collision_layer_bit(0, true)
-	shield.visible = false

@@ -11,11 +11,7 @@ export(PackedScene) onready var Enemy : PackedScene
 export(Array, PackedScene) onready var Pickups : Array
 
 onready var enemySpawnTimer := $EnemySpawnTimer
-onready var pickupSpawnTimer := $PickupSpawnTimer
-onready var slowMotionTimer : Timer = $SlowMotionTimer
 onready var score_timer: Timer = $ScoreTimer
-
-onready var slow_motion_background : ColorRect = $BackgroundLayer/SlowMotion
 
 onready var npcSpawner : Path2D = $NPCSpawner
 onready var npcSpawnPosition : PathFollow2D = $NPCSpawner/SpawnPosition
@@ -24,8 +20,6 @@ onready var pause_menu: Control = $HUDLayer/PauseMenu
 
 const INITIAL_ENEMY_SPEED := 100.0
 const ENEMY_SPEED_INCREMENT := 50.0
-
-export(float, 0, 1) var pickup_spawn_chance := 0.05
 
 var random := RandomNumberGenerator.new()
 
@@ -131,35 +125,8 @@ func quit() -> void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(main_menu_scene)
 
-func _on_PickupSpawnTimer_timeout():
-	if not(random.randf_range(0, 1) <= pickup_spawn_chance):
-		return
-	
-	var i := random.randi_range(0, 1)
-	
-	var pickup = instance_npc(Pickups[i])
-	pickup.speed = INITIAL_ENEMY_SPEED
-	
-	if pickup is Invulnerabilty:
-		# warning-ignore:return_value_discarded
-		pickup.connect("area_entered", self, "_on_Invulnerability_area_entered")
-	elif pickup is SlowMotion:
-		# warning-ignore:return_value_discarded
-		pickup.connect("area_entered", self, "_on_SlowMotion_area_entered")
-
 func _on_Invulnerability_area_entered(_area : Area) -> void:
 	player.enable_shield()
-
-func _on_SlowMotion_area_entered(_area : Area) -> void:
-	slow_motion_background.visible = true
-	Global.time_scale = 0.25
-	slowMotionTimer.start()
-	get_tree().call_group("pickups", "set_pickable", false)
-
-func _on_SlowMotionTimer_timeout():
-	slow_motion_background.visible = false
-	Global.time_scale = 1.0
-	get_tree().call_group("pickups", "set_pickable", true)
 
 func _on_PauseMenu_hide():
 	get_viewport().warp_mouse(player.position)

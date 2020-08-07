@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/HUD.gd"
 }, {
-"base": "Pickup",
-"class": "Invulnerabilty",
-"language": "GDScript",
-"path": "res://scripts/Invulnerability.gd"
-}, {
 "base": "Area2D",
 "class": "Mob",
 "language": "GDScript",
@@ -34,30 +29,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/NPC.gd"
 }, {
-"base": "NPC",
-"class": "Pickup",
-"language": "GDScript",
-"path": "res://entities/Pickup.gd"
-}, {
 "base": "Area2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://scripts/Player.gd"
-}, {
-"base": "Pickup",
-"class": "SlowMotion",
-"language": "GDScript",
-"path": "res://scripts/SlowMotion.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
 "HUD": "",
-"Invulnerabilty": "",
 "Mob": "",
 "NPC": "",
-"Pickup": "",
-"Player": "",
-"SlowMotion": ""
+"Player": ""
 }
 
 [application]
