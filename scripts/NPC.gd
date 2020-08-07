@@ -1,4 +1,4 @@
-extends "res://scripts/Mob.gd"
+extends Movable
 class_name NPC
 
 var direction := Vector2.ZERO

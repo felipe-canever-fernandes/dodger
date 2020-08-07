@@ -1,5 +1,5 @@
 tool
-extends "res://scripts/Mob.gd"
+extends Movable
 class_name Player
 
 onready var shape := $CollisionShape2D
