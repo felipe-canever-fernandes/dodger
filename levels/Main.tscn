@@ -21,7 +21,6 @@ main_menu_scene = "res://menus/MainMenu.tscn"
 Player = ExtResource( 1 )
 Enemy = ExtResource( 3 )
 powerup_scenes = [ ExtResource( 6 ), ExtResource( 7 ) ]
-shield_spawn_chance = 1.0
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

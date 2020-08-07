@@ -96,6 +96,7 @@ func instance_powerup() -> void:
 	if powerup is SlowMotion:
 		var slow_motion: SlowMotion = powerup
 		
+		# warning-ignore:return_value_discarded
 		slow_motion.connect("picked_up", self, "on_SlowMotion_picked_up",
 			[slow_motion])
 
