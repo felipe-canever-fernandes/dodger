@@ -11,8 +11,8 @@ export(PackedScene) onready var Enemy : PackedScene
 onready var enemySpawnTimer := $EnemySpawnTimer
 onready var score_timer: Timer = $ScoreTimer
 
-onready var npcSpawner : Path2D = $NPCSpawner
-onready var npcSpawnPosition : PathFollow2D = $NPCSpawner/SpawnPosition
+onready var spawner : Path2D = $Spawner
+onready var spawn_position : PathFollow2D = $Spawner/Position
 
 onready var pause_menu: Control = $HUDLayer/PauseMenu
 
@@ -46,7 +46,7 @@ func _ready() -> void:
 	self.score = 0
 	
 	instance_player()
-	make_npc_spawner()
+	make_spawner()
 	
 	if Global.starting_level == 1:
 		score_timer.start()
@@ -64,20 +64,22 @@ func instance(Scene : PackedScene, position : Vector2):
 func instance_player() -> void:
 	player = instance(Player, get_viewport_rect().size / 2)
 
-func instance_npc(Scene: PackedScene) -> Spawnable:
-	npcSpawnPosition.unit_offset = random.randf()
-	var position := npcSpawnPosition.position
+func instance_spawnable(spawnable_scene: PackedScene) -> Spawnable:
+	spawn_position.unit_offset = random.randf()
+	var position := spawn_position.position
 	
-	var npc: Spawnable = instance(Scene, position)
+	var spawnable: Spawnable = instance(spawnable_scene, position)
 	
 	var middle := get_viewport_rect().size / 2
-	npc.direction = npc.position.direction_to(middle)
-	npc.direction = npc.direction.rotated(random.randf_range(-PI / 8, PI / 8))
+	spawnable.direction = spawnable.position.direction_to(middle)
 	
-	return npc
+	spawnable.direction = spawnable.direction.rotated(
+		random.randf_range(-PI / 8, PI / 8))
+	
+	return spawnable
 
-func make_npc_spawner() -> void:
-	var curve := npcSpawner.curve
+func make_spawner() -> void:
+	var curve := spawner.curve
 	var size := get_viewport_rect().size
 	
 	curve.add_point(Vector2(0, 0));
@@ -100,7 +102,7 @@ func _on_ScoreTimer_timeout() -> void:
 		enemySpawnTimer.wait_time = new_wait_time
 
 func _on_EnemySpawnTimer_timeout() -> void:
-	var enemy : Enemy = instance_npc(Enemy)
+	var enemy : Enemy = instance_spawnable(Enemy)
 	
 	# warning-ignore:return_value_discarded
 	enemy.connect("area_entered", self, "_on_Enemy_area_entered")

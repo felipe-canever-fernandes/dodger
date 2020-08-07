@@ -47,10 +47,10 @@ script = ExtResource( 5 )
 initial_wait_time = 1.0
 wait_time_decrement = 0.025
 
-[node name="NPCSpawner" type="Path2D" parent="."]
+[node name="Spawner" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="SpawnPosition" type="PathFollow2D" parent="NPCSpawner"]
+[node name="Position" type="PathFollow2D" parent="Spawner"]
 rotate = false
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
