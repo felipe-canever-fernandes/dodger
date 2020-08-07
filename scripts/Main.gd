@@ -7,7 +7,7 @@ export(String, FILE) var main_menu_scene : String
 
 export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
-export(PackedScene) onready var shield_scene: PackedScene
+export(Array, PackedScene) onready var powerup_scenes: Array
 
 export(float, 0, 1) var shield_spawn_chance := 0.05
 
@@ -81,6 +81,12 @@ func instance_spawnable(spawnable_scene: PackedScene) -> Spawnable:
 	
 	return spawnable
 
+func instance_powerup() -> void:
+	var i: int = random.randi_range(0, len(powerup_scenes) - 1)
+	var scene: PackedScene = powerup_scenes[i]
+	
+	var powerup: Powerup = instance_spawnable(scene)
+
 func make_spawner() -> void:
 	var curve := spawner.curve
 	var size := get_viewport_rect().size
@@ -135,4 +141,4 @@ func _on_PickupSpawnTimer_timeout() -> void:
 	if not random.randf() <= shield_spawn_chance:
 		return
 	
-	instance_spawnable(shield_scene)
+	instance_powerup()
