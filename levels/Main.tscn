@@ -54,6 +54,10 @@ wait_time_decrement = 0.025
 [node name="PickupSpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="SlowMotionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="Spawner" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
@@ -74,4 +78,5 @@ visible = false
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
 [connection signal="timeout" from="PickupSpawnTimer" to="." method="_on_PickupSpawnTimer_timeout"]
+[connection signal="timeout" from="SlowMotionTimer" to="." method="_on_SlowMotionTimer_timeout"]
 [connection signal="hide" from="HUDLayer/PauseMenu" to="." method="_on_PauseMenu_hide"]

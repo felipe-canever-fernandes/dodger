@@ -10,9 +10,13 @@ export(PackedScene) onready var Enemy : PackedScene
 export(Array, PackedScene) onready var powerup_scenes: Array
 
 export(float, 0, 1) var shield_spawn_chance := 0.05
+export(float, 0, 1) var slow_motion_time_scale := 0.25
 
 onready var enemySpawnTimer := $EnemySpawnTimer
 onready var score_timer: Timer = $ScoreTimer
+onready var slow_motion_timer: Timer = $SlowMotionTimer
+
+onready var slow_motion_background: ColorRect = $BackgroundLayer/SlowMotion
 
 onready var spawner : Path2D = $Spawner
 onready var spawn_position : PathFollow2D = $Spawner/Position
@@ -53,6 +57,8 @@ func _ready() -> void:
 	
 	if Global.starting_level == 1:
 		score_timer.start()
+	
+	Global.time_scale = 1.0
 
 func _exit_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -86,6 +92,12 @@ func instance_powerup() -> void:
 	var scene: PackedScene = powerup_scenes[i]
 	
 	var powerup: Powerup = instance_spawnable(scene)
+	
+	if powerup is SlowMotion:
+		var slow_motion: SlowMotion = powerup
+		
+		slow_motion.connect("picked_up", self, "on_SlowMotion_picked_up",
+			[slow_motion])
 
 func make_spawner() -> void:
 	var curve := spawner.curve
@@ -142,3 +154,24 @@ func _on_PickupSpawnTimer_timeout() -> void:
 		return
 	
 	instance_powerup()
+
+func on_SlowMotion_picked_up(slow_motion: SlowMotion) -> void:
+	if player.has_powerup:
+		return
+	
+	enable_slow_motion()
+	slow_motion.queue_free()
+
+func _on_SlowMotionTimer_timeout() -> void:
+	disable_slow_motion()
+
+func enable_slow_motion() -> void:
+	player.has_powerup = true
+	slow_motion_timer.start()
+	Global.time_scale = slow_motion_time_scale
+	slow_motion_background.show()
+
+func disable_slow_motion() -> void:
+	player.has_powerup = false
+	Global.time_scale = 1.0
+	slow_motion_background.hide() 

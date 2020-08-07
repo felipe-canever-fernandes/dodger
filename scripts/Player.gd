@@ -12,6 +12,8 @@ const ROTATION_SPEED := 25.0
 var extents := Vector2.ZERO
 var previous_position := Vector2.ZERO
 
+var has_powerup := false
+
 func _ready() -> void:
 	extents = (shape.shape as RectangleShape2D).extents
 
@@ -38,9 +40,11 @@ func _on_ShieldTimer_timeout() -> void:
 
 func enable_shield() -> void:
 	shield.show()
+	has_powerup = true
 	shape.call_deferred("set_disabled", true)
 	shield_timer.start()
 
 func disable_shield() -> void:
 	shield.hide()
+	has_powerup = false
 	shape.call_deferred("set_disabled", false)
