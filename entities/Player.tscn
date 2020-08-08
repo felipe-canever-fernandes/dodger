@@ -13,6 +13,10 @@ script = ExtResource( 2 )
 rotation = -1.5708
 texture = ExtResource( 3 )
 
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+disabled = true
+
 [node name="Shield" type="Sprite" parent="." index="2"]
 visible = false
 modulate = Color( 1, 1, 1, 0.247059 )
@@ -22,4 +26,7 @@ texture = ExtResource( 4 )
 [node name="Timer" type="Timer" parent="Shield" index="0"]
 wait_time = 5.0
 one_shot = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
+polygon = PoolVector2Array( 4, -13.5546, 9, -12.5546, 10, -2.55455, 14, -2.55455, 14, 2.44545, 10, 2.44545, 9, 12.4454, 4, 13.4454, -2, 3.44545, -13, 0.44545, -13, -0.55455, -2, -3.55455 )
 [connection signal="timeout" from="Shield/Timer" to="." method="_on_ShieldTimer_timeout"]

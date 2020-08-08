@@ -2,7 +2,8 @@ tool
 extends Movable
 class_name Player
 
-onready var shape := $CollisionShape2D
+onready var shape := $CollisionPolygon2D
+onready var extent_shape: CollisionShape2D = $CollisionShape2D
 
 onready var shield: Sprite = $Shield
 onready var shield_timer: Timer = $Shield/Timer
@@ -15,7 +16,7 @@ var previous_position := Vector2.ZERO
 var has_powerup := false
 
 func _ready() -> void:
-	extents = (shape.shape as RectangleShape2D).extents
+	extents = (extent_shape.shape as RectangleShape2D).extents
 
 func _process(delta : float) -> void:
 	if Engine.editor_hint:

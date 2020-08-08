@@ -5,6 +5,7 @@
 [ext_resource path="res://scripts/Shield.gd" type="Script" id=3]
 
 [node name="Shield" instance=ExtResource( 1 )]
+position = Vector2( 0, -0.44545 )
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
