@@ -18,6 +18,7 @@ func _on_NewGameButton_pressed() -> void:
 	get_tree().change_scene(scene)
 
 func _on_QuitButton_pressed() -> void:
+	yield(transition.play(), "completed")
 	get_tree().quit()
 
 func _on_ResetHighScoreButton_pressed() -> void:
