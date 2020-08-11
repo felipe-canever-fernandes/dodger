@@ -6,8 +6,22 @@ export(String, FILE) var game_scene : String
 onready var high_score_label := $CenterContainer/VBoxContainer/HighScoreLabel
 onready var high_level_label := $CenterContainer/VBoxContainer/HighLevelLabel
 
+onready var container: Container = $CenterContainer
+onready var tween: Tween = $Tween
+
+const FINAL_MODULATE := Color(1, 1, 1, 0)
+
 func _on_NewGameButton_pressed() -> void:
 	var scene := game_scene if Global.high_level == 1 else new_game_scene
+	
+	# warning-ignore:return_value_discarded
+	tween.interpolate_property(container, "modulate",
+		null, FINAL_MODULATE, 0.5)
+	
+	# warning-ignore:return_value_discarded
+	tween.start()
+	
+	yield(tween, "tween_all_completed")
 	
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(scene)

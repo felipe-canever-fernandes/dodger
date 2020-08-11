@@ -16,6 +16,8 @@ __meta__ = {
 new_game_scene = "res://menus/NewGameMenu.tscn"
 game_scene = "res://levels/Main.tscn"
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
