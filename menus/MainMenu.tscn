@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://menus/Transition.tscn" type="PackedScene" id=4]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -16,7 +17,7 @@ __meta__ = {
 new_game_scene = "res://menus/NewGameMenu.tscn"
 game_scene = "res://levels/Main.tscn"
 
-[node name="Tween" type="Tween" parent="."]
+[node name="Transition" parent="." instance=ExtResource( 4 )]
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 

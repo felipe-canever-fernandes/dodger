@@ -25,4 +25,5 @@ func _on_StartFromHighButton_pressed():
 	get_tree().change_scene(game_scene)
 
 func _on_BackButton_pressed():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene(main_menu_scene)
