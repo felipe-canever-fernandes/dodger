@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://menus/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menus/GameButton.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -16,6 +17,8 @@ __meta__ = {
 }
 new_game_scene = "res://menus/NewGameMenu.tscn"
 game_scene = "res://levels/Main.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Transition" parent="." instance=ExtResource( 4 )]
 
@@ -48,9 +51,8 @@ text = "DODGER
 "
 align = 1
 
-[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="NewGameButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 43.0
-margin_right = 90.0
 margin_bottom = 65.0
 text = "New Game"
 
