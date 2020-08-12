@@ -184,8 +184,11 @@ func enable_slow_motion() -> void:
 	slow_motion_timer.start()
 	Global.time_scale = slow_motion_time_scale
 	slow_motion_background.show()
+	
+	audio_stream_player.stream = player.slow_motion
+	audio_stream_player.play()
 
 func disable_slow_motion() -> void:
 	player.has_powerup = false
 	Global.time_scale = 1.0
-	slow_motion_background.hide() 
+	slow_motion_background.hide()
