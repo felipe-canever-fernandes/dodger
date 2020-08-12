@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/Movable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -21,9 +21,6 @@ gravity = Vector3( 0, 20, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 2 )
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 64.0
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1
@@ -59,12 +56,4 @@ rotation = -1.5708
 amount = 4
 process_material = SubResource( 3 )
 texture = ExtResource( 5 )
-
-[node name="SoundArea" type="Area2D" parent="." index="5"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SoundArea" index="0"]
-visible = false
-shape = SubResource( 4 )
 [connection signal="timeout" from="Shield/Timer" to="." method="_on_ShieldTimer_timeout"]
