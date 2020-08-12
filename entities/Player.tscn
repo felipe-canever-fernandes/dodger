@@ -6,18 +6,18 @@
 [ext_resource path="res://textures/shield2.png" type="Texture" id=4]
 [ext_resource path="res://textures/jet.png" type="Texture" id=5]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
 gravity = Vector3( 0, 20, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 2 )
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1
@@ -48,6 +48,6 @@ polygon = PoolVector2Array( 4, -13.5546, 9, -12.5546, 10, -2.55455, 14, -2.55455
 position = Vector2( 19, 0.44545 )
 rotation = -1.5708
 amount = 4
-process_material = SubResource( 1 )
+process_material = SubResource( 3 )
 texture = ExtResource( 5 )
 [connection signal="timeout" from="Shield/Timer" to="." method="_on_ShieldTimer_timeout"]

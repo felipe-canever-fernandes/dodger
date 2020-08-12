@@ -2,6 +2,8 @@ tool
 extends Movable
 class_name Player
 
+signal shield_enabled
+
 onready var shape := $CollisionPolygon2D
 onready var extent_shape: CollisionShape2D = $CollisionShape2D
 
@@ -44,6 +46,7 @@ func enable_shield() -> void:
 	has_powerup = true
 	shape.call_deferred("set_disabled", true)
 	shield_timer.start()
+	emit_signal("shield_enabled")
 
 func disable_shield() -> void:
 	shield.hide()
