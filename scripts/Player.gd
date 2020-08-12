@@ -6,6 +6,7 @@ signal shield_enabled
 signal shield_disabled
 
 export(AudioStream) var shield_sound: AudioStream
+export(AudioStream) var powerup_over_sound: AudioStream
 
 onready var shape := $CollisionPolygon2D
 onready var extent_shape: CollisionShape2D = $CollisionShape2D
