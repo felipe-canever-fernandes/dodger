@@ -80,10 +80,9 @@ margin_right = 66.0
 size_flags_horizontal = 3
 text = "Yes"
 
-[node name="NoButton" type="Button" parent="Container/ConfirmationContainer/ConfirmationButtons"]
+[node name="NoButton" parent="Container/ConfirmationContainer/ConfirmationButtons" instance=ExtResource( 4 )]
 margin_left = 70.0
 margin_right = 137.0
-margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "No"
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
