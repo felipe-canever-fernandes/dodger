@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://menus/MainMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menus/GameButton.tscn" type="PackedScene" id=4]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -42,7 +43,7 @@ margin_bottom = 18.0
 text = "PAUSE MENU"
 align = 1
 
-[node name="ResumeButton" type="Button" parent="Container/Items"]
+[node name="ResumeButton" parent="Container/Items" instance=ExtResource( 4 )]
 margin_top = 22.0
 margin_right = 68.0
 margin_bottom = 44.0
