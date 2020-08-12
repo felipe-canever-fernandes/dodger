@@ -75,7 +75,9 @@ func instance(Scene : PackedScene, position : Vector2):
 func instance_player() -> void:
 	player = instance(Player, get_viewport_rect().size / 2)
 	
+	# warning-ignore:return_value_discarded
 	player.connect("shield_enabled", self, "on_Player_shield_enabled")
+	# warning-ignore:return_value_discarded
 	player.connect("shield_disabled", self, "on_Player_shield_disabled")
 
 func on_Player_shield_enabled() -> void:
