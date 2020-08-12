@@ -192,3 +192,6 @@ func disable_slow_motion() -> void:
 	player.has_powerup = false
 	Global.time_scale = 1.0
 	slow_motion_background.hide()
+	
+	audio_stream_player.stream = player.powerup_over_sound
+	audio_stream_player.play()
