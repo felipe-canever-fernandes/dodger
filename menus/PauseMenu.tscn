@@ -75,9 +75,8 @@ margin_right = 137.0
 margin_bottom = 65.0
 alignment = 1
 
-[node name="YesButton" type="Button" parent="Container/ConfirmationContainer/ConfirmationButtons"]
+[node name="YesButton" parent="Container/ConfirmationContainer/ConfirmationButtons" instance=ExtResource( 4 )]
 margin_right = 66.0
-margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "Yes"
 
