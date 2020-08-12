@@ -5,6 +5,8 @@ class_name Player
 signal shield_enabled
 signal shield_disabled
 
+export(AudioStream) var shield_sound: AudioStream
+
 onready var shape := $CollisionPolygon2D
 onready var extent_shape: CollisionShape2D = $CollisionShape2D
 
