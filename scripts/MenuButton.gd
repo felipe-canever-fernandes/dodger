@@ -7,6 +7,9 @@ export(AudioStream) var click_sound: AudioStream
 onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _on_mouse_entered():
+	if disabled:
+		return
+	
 	audio_stream_player.stream = hover_sound
 	audio_stream_player.play()
 
