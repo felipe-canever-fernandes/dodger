@@ -22,6 +22,8 @@ Player = ExtResource( 1 )
 Enemy = ExtResource( 3 )
 powerup_scenes = [ ExtResource( 6 ), ExtResource( 7 ) ]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
 

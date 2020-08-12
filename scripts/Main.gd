@@ -12,6 +12,8 @@ export(Array, PackedScene) onready var powerup_scenes: Array
 export(float, 0, 1) var shield_spawn_chance := 0.05
 export(float, 0, 1) var slow_motion_time_scale := 0.25
 
+onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 onready var enemySpawnTimer := $EnemySpawnTimer
 onready var score_timer: Timer = $ScoreTimer
 onready var slow_motion_timer: Timer = $SlowMotionTimer
@@ -72,6 +74,12 @@ func instance(Scene : PackedScene, position : Vector2):
 
 func instance_player() -> void:
 	player = instance(Player, get_viewport_rect().size / 2)
+	
+	player.connect("shield_enabled", self, "on_Player_shield_enabled")
+
+func on_Player_shield_enabled() -> void:
+	audio_stream_player.stream = player.shield_sound
+	audio_stream_player.play()
 
 func instance_spawnable(spawnable_scene: PackedScene) -> Spawnable:
 	spawn_position.unit_offset = random.randf()
