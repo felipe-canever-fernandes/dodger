@@ -9,6 +9,7 @@ export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
 export(Array, PackedScene) onready var powerup_scenes: Array
 export(PackedScene) onready var explosion_scene: PackedScene
+export(AudioStream) var explosion_sound: AudioStream
 
 export(float, 0, 1) var shield_spawn_chance := 0.05
 export(float, 0, 1) var slow_motion_time_scale := 0.25
@@ -154,6 +155,9 @@ func _on_Enemy_area_entered(_area : Area) -> void:
 	explode()
 
 func explode() -> void:
+	audio_stream_player.stream = explosion_sound
+	audio_stream_player.play()
+	
 	flash_animation_player.play("Flash")
 	instance_explosion()
 	player.queue_free()
