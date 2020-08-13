@@ -148,6 +148,7 @@ func _on_EnemySpawnTimer_timeout() -> void:
 	enemy.speed = (INITIAL_ENEMY_SPEED + ENEMY_SPEED_INCREMENT * self.level)
 
 func _on_Enemy_area_entered(_area : Area) -> void:
+	pause_menu.queue_free()
 	instance_explosion()
 	player.queue_free()
 
