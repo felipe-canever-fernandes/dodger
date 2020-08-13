@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/SlowMotion.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menus/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/Explosion.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -21,6 +22,7 @@ main_menu_scene = "res://menus/MainMenu.tscn"
 Player = ExtResource( 1 )
 Enemy = ExtResource( 3 )
 powerup_scenes = [ ExtResource( 6 ), ExtResource( 7 ) ]
+explosion_scene = ExtResource( 10 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

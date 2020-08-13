@@ -8,6 +8,7 @@ export(String, FILE) var main_menu_scene : String
 export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
 export(Array, PackedScene) onready var powerup_scenes: Array
+export(PackedScene) onready var explosion_scene: PackedScene
 
 export(float, 0, 1) var shield_spawn_chance := 0.05
 export(float, 0, 1) var slow_motion_time_scale := 0.25
@@ -147,6 +148,20 @@ func _on_EnemySpawnTimer_timeout() -> void:
 	enemy.speed = (INITIAL_ENEMY_SPEED + ENEMY_SPEED_INCREMENT * self.level)
 
 func _on_Enemy_area_entered(_area : Area) -> void:
+	instance_explosion()
+	player.queue_free()
+
+func instance_explosion() -> void:
+	var explosion: AnimatedSprite = explosion_scene.instance()
+	add_child(explosion)
+	
+	explosion.connect("animation_finished", self,
+		"on_explosion_animation_finished")
+		
+	explosion.global_position = player.position
+	explosion.play()
+
+func on_explosion_animation_finished() -> void:
 	quit()
 
 func quit() -> void:
