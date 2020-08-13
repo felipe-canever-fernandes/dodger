@@ -26,6 +26,8 @@ onready var spawn_position : PathFollow2D = $Spawner/Position
 
 onready var pause_menu: Control = $HUDLayer/PauseMenu
 
+onready var flash_animation_player: AnimationPlayer = $HUDLayer/Flash/AnimationPlayer
+
 const INITIAL_ENEMY_SPEED := 100.0
 const ENEMY_SPEED_INCREMENT := 50.0
 
@@ -149,6 +151,10 @@ func _on_EnemySpawnTimer_timeout() -> void:
 
 func _on_Enemy_area_entered(_area : Area) -> void:
 	pause_menu.queue_free()
+	explode()
+
+func explode() -> void:
+	flash_animation_player.play("Flash")
 	instance_explosion()
 	player.queue_free()
 
@@ -156,6 +162,7 @@ func instance_explosion() -> void:
 	var explosion: AnimatedSprite = explosion_scene.instance()
 	add_child(explosion)
 	
+	# warning-ignore:return_value_discarded
 	explosion.connect("animation_finished", self,
 		"on_explosion_animation_finished")
 		
