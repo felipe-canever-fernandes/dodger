@@ -1,8 +1,5 @@
 extends Control
 
-export(String, FILE) var game_scene : String
-export(String, FILE) var main_menu_scene : String
-
 onready var start_from_high_button: Button = $CenterContainer/VBoxContainer/StartFromHighContainer/StartFromHighButton
 
 onready var transition: Transition = $Transition
@@ -28,10 +25,10 @@ func start_game(starting_level: int) -> void:
 	Global.starting_level = starting_level
 	
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene(game_scene)
+	get_tree().change_scene_to(Screens.LEVEL_SCENE)
 
 func _on_BackButton_pressed():
 	yield(transition.play(), "completed")
 	
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene(main_menu_scene)
+	get_tree().change_scene_to(Screens.MAIN_MENU_SCENE)
