@@ -5,12 +5,18 @@ const _NEW_GAME_MENU_SCENE := preload("res://menus/NewGameMenu.tscn")
 const _LEVEL_SCENE := preload("res://levels/Main.tscn")
 const _MAIN_MENU_SCENE := preload("res://menus/MainMenu.tscn")
 
+var score := 0 setget set_score
+
+onready var _score_label: Label = $VBoxContainer/ScoreLabel
 onready var _high_score_label: Label = $VBoxContainer/HighScoreLabel
 onready var _high_level_label: Label = $VBoxContainer/HighLevelLabel
 
 func _ready() -> void:
 	_high_score_label.text = "High Score: %s" % Global.high_score
 	_high_level_label.text = "High Level: %s" % Global.high_level
+
+func set_score(value: int) -> void:
+	_score_label.text = "Score: %s" % value
 
 func _on_NewGameButton_pressed() -> void:
 	_create_new_game()
