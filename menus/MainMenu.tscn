@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://menus/Transition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menus/GameButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://logo/logo.png" type="Texture" id=6]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -25,70 +26,71 @@ game_scene = "res://levels/Main.tscn"
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -45.0
-margin_top = -104.5
-margin_right = 45.0
-margin_bottom = 104.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_right = 90.0
-margin_bottom = 209.0
+margin_left = 256.0
+margin_top = 59.0
+margin_right = 384.0
+margin_bottom = 301.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 90.0
-margin_bottom = 39.0
-text = "DODGER
-"
-align = 1
+[node name="Logo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 72.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NewGameButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 43.0
-margin_bottom = 65.0
+margin_top = 76.0
+margin_right = 128.0
+margin_bottom = 98.0
 text = "New Game"
 
 [node name="QuitButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 69.0
-margin_bottom = 91.0
+margin_top = 102.0
+margin_right = 128.0
+margin_bottom = 124.0
 text = "Quit"
 
 [node name="Space" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 95.0
-margin_right = 90.0
-margin_bottom = 113.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 146.0
 align = 1
 
 [node name="HighScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 117.0
-margin_right = 90.0
-margin_bottom = 135.0
+margin_top = 150.0
+margin_right = 128.0
+margin_bottom = 168.0
 text = "High Score"
 align = 1
 
 [node name="ResetHighScoreButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 139.0
-margin_bottom = 161.0
+margin_top = 172.0
+margin_right = 128.0
+margin_bottom = 194.0
 text = "Reset High Score"
 
 [node name="HighLevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 165.0
-margin_right = 90.0
-margin_bottom = 183.0
+margin_top = 198.0
+margin_right = 128.0
+margin_bottom = 216.0
 text = "High Level"
 align = 1
 
 [node name="ResetHighLevelButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 187.0
-margin_bottom = 209.0
+margin_top = 220.0
+margin_right = 128.0
+margin_bottom = 242.0
 text = "Reset High Level"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
