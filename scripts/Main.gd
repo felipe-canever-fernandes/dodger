@@ -3,8 +3,6 @@ extends Node2D
 signal level_changed(level)
 signal score_changed(score)
 
-export(String, FILE) var main_menu_scene : String
-
 export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
 export(Array, PackedScene) onready var powerup_scenes: Array
@@ -187,7 +185,7 @@ func quit() -> void:
 	Global.save()
 		
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene(main_menu_scene)
+	get_tree().change_scene_to(Screens.MAIN_MENU_SCENE)
 
 func _on_PauseMenu_hide():
 	get_viewport().warp_mouse(player.position)

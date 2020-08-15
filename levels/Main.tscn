@@ -47,7 +47,6 @@ tracks/1/keys = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
-main_menu_scene = "res://menus/MainMenu.tscn"
 Player = ExtResource( 1 )
 Enemy = ExtResource( 3 )
 powerup_scenes = [ ExtResource( 6 ), ExtResource( 7 ) ]
