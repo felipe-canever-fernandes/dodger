@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://menus/MainMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/GameButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menus/BackgroundOverlay.tscn" type="PackedScene" id=5]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -15,13 +16,7 @@ __meta__ = {
 }
 main_menu_scene = ExtResource( 3 )
 
-[node name="Background" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0.25098 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Background" parent="." instance=ExtResource( 5 )]
 
 [node name="Container" type="CenterContainer" parent="."]
 anchor_right = 1.0
