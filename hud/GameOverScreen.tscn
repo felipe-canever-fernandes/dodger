@@ -3,87 +3,91 @@
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/GameOverScreen.gd" type="Script" id=2]
 
-[node name="GameOverScreen" type="CenterContainer"]
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 287.0
 margin_top = 68.0
 margin_right = 352.0
 margin_bottom = 292.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 65.0
 margin_bottom = 18.0
 text = "GAME OVER"
 align = 1
 valign = 1
 
-[node name="Space" type="Label" parent="VBoxContainer"]
+[node name="Space" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 22.0
 margin_right = 65.0
 margin_bottom = 40.0
 align = 1
 valign = 1
 
-[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 44.0
 margin_right = 65.0
 margin_bottom = 62.0
 text = "Score: ?"
 valign = 1
 
-[node name="HighScoreLabel" type="Label" parent="VBoxContainer"]
+[node name="HighScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 66.0
 margin_right = 65.0
 margin_bottom = 84.0
 text = "High Score: ?"
 valign = 1
 
-[node name="Space2" type="Label" parent="VBoxContainer"]
+[node name="Space2" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 88.0
 margin_right = 65.0
 margin_bottom = 106.0
 align = 1
 valign = 1
 
-[node name="LevelLabel" type="Label" parent="VBoxContainer"]
+[node name="LevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 110.0
 margin_right = 65.0
 margin_bottom = 128.0
 text = "Level: ?"
 valign = 1
 
-[node name="HighLevelLabel" type="Label" parent="VBoxContainer"]
+[node name="HighLevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 132.0
 margin_right = 65.0
 margin_bottom = 150.0
 text = "High Level: ?"
 valign = 1
 
-[node name="Space3" type="Label" parent="VBoxContainer"]
+[node name="Space3" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 154.0
 margin_right = 65.0
 margin_bottom = 172.0
 align = 1
 valign = 1
 
-[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 176.0
 margin_right = 65.0
 margin_bottom = 198.0
 text = "New Game"
 
-[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 202.0
 margin_right = 65.0
 margin_bottom = 224.0
 text = "Main Menu"
-[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

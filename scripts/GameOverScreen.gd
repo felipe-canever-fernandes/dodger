@@ -1,5 +1,5 @@
 class_name GameOverScreen
-extends CenterContainer
+extends Control
 
 const _NEW_GAME_MENU_SCENE := preload("res://menus/NewGameMenu.tscn")
 const _LEVEL_SCENE := preload("res://levels/Main.tscn")
@@ -8,11 +8,13 @@ const _MAIN_MENU_SCENE := preload("res://menus/MainMenu.tscn")
 var score := 0 setget set_score
 var level := 0 setget set_level
 
-onready var _score_label: Label = $VBoxContainer/ScoreLabel
-onready var _high_score_label: Label = $VBoxContainer/HighScoreLabel
+onready var _score_label: Label = $CenterContainer/VBoxContainer/ScoreLabel
+onready var _high_score_label: Label = \
+		$CenterContainer/VBoxContainer/HighScoreLabel
 
-onready var _level_label: Label = $VBoxContainer/LevelLabel
-onready var _high_level_label: Label = $VBoxContainer/HighLevelLabel
+onready var _level_label: Label = $CenterContainer/VBoxContainer/LevelLabel
+onready var _high_level_label: Label = \
+		$CenterContainer/VBoxContainer/HighLevelLabel
 
 func _ready() -> void:
 	_high_score_label.text = "High Score: %s" % Global.high_score

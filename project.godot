@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/MenuButton.gd"
 }, {
-"base": "CenterContainer",
+"base": "Control",
 "class": "GameOverScreen",
 "language": "GDScript",
 "path": "res://scripts/GameOverScreen.gd"
