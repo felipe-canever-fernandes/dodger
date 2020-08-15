@@ -13,12 +13,12 @@ func _ready() -> void:
 	_high_level_label.text = "High Level: %s" % Global.high_level
 
 func _on_NewGameButton_pressed() -> void:
-	_new_game()
+	_create_new_game()
 
 func _on_MainMenuButton_pressed() -> void:
-	_main_menu()
+	_go_to_main_menu()
 
-func _new_game() -> void:
+func _create_new_game() -> void:
 	var scene := _LEVEL_SCENE \
 			if Global.high_level == 1 \
 			else _NEW_GAME_MENU_SCENE
@@ -26,6 +26,6 @@ func _new_game() -> void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(scene)
 
-func _main_menu() -> void:
+func _go_to_main_menu() -> void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(_MAIN_MENU_SCENE)
