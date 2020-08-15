@@ -1,10 +1,6 @@
 class_name GameOverScreen
 extends Control
 
-const _NEW_GAME_MENU_SCENE := preload("res://menus/NewGameMenu.tscn")
-const _LEVEL_SCENE := preload("res://levels/Main.tscn")
-const _MAIN_MENU_SCENE := preload("res://menus/MainMenu.tscn")
-
 var score := 0 setget set_score
 var level := 0 setget set_level
 
@@ -33,13 +29,13 @@ func _on_MainMenuButton_pressed() -> void:
 	_go_to_main_menu()
 
 func _create_new_game() -> void:
-	var scene := _LEVEL_SCENE \
+	var scene: PackedScene = Screens.LEVEL_SCENE \
 			if Global.high_level == 1 \
-			else _NEW_GAME_MENU_SCENE
+			else Screens.NEW_GAME_MENU_SCENE
 	
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(scene)
 
 func _go_to_main_menu() -> void:
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene_to(_MAIN_MENU_SCENE)
+	get_tree().change_scene_to(Screens.MAIN_MENU_SCENE)
