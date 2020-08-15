@@ -12,6 +12,9 @@ func _ready() -> void:
 	_high_level_label.text = "High Level: %s" % Global.high_level
 
 func _on_NewGameButton_pressed() -> void:
+	_new_game()
+
+func _new_game() -> void:
 	var scene := _LEVEL_SCENE \
 			if Global.high_level == 1 \
 			else _NEW_GAME_MENU_SCENE
