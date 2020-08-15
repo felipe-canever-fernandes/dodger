@@ -16,8 +16,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-new_game_scene = "res://menus/NewGameMenu.tscn"
-game_scene = "res://levels/Main.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

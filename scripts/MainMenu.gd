@@ -1,8 +1,5 @@
 extends Control
 
-export(String, FILE) var new_game_scene : String
-export(String, FILE) var game_scene : String
-
 onready var high_score_label := $CenterContainer/VBoxContainer/HighScoreLabel
 onready var high_level_label := $CenterContainer/VBoxContainer/HighLevelLabel
 
@@ -12,10 +9,12 @@ onready var container: Container = $CenterContainer
 func _on_NewGameButton_pressed() -> void:
 	yield(transition.play(), "completed")
 	
-	var scene := game_scene if Global.high_level == 1 else new_game_scene
+	var scene: PackedScene = Screens.LEVEL_SCENE \
+			if Global.high_level == 1 \
+			else Screens.NEW_GAME_MENU_SCENE
 	
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene(scene)
+	get_tree().change_scene_to(scene)
 
 func _on_QuitButton_pressed() -> void:
 	yield(transition.play(), "completed")
