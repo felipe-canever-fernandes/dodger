@@ -76,6 +76,7 @@ _global_script_class_icons={
 
 config/name="Dodger"
 run/main_scene="res://menus/MainMenu.tscn"
+boot_splash/image="res://logo/splash.png"
 config/icon="res://icon.png"
 
 [autoload]
