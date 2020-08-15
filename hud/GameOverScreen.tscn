@@ -86,3 +86,4 @@ margin_right = 65.0
 margin_bottom = 224.0
 text = "Main Menu"
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

@@ -3,6 +3,7 @@ extends CenterContainer
 
 const _NEW_GAME_MENU_SCENE := preload("res://menus/NewGameMenu.tscn")
 const _LEVEL_SCENE := preload("res://levels/Main.tscn")
+const _MAIN_MENU_SCENE := preload("res://menus/MainMenu.tscn")
 
 onready var _high_score_label: Label = $VBoxContainer/HighScoreLabel
 onready var _high_level_label: Label = $VBoxContainer/HighLevelLabel
@@ -14,6 +15,9 @@ func _ready() -> void:
 func _on_NewGameButton_pressed() -> void:
 	_new_game()
 
+func _on_MainMenuButton_pressed() -> void:
+	_main_menu()
+
 func _new_game() -> void:
 	var scene := _LEVEL_SCENE \
 			if Global.high_level == 1 \
@@ -21,3 +25,7 @@ func _new_game() -> void:
 	
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(scene)
+
+func _main_menu() -> void:
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene_to(_MAIN_MENU_SCENE)
