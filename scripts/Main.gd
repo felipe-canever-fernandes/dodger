@@ -176,6 +176,9 @@ func on_explosion_animation_finished() -> void:
 	end_game()
 
 func end_game() -> void:
+	game_over_screen.score = score
+	game_over_screen.level = level
+	
 	game_over_screen.show()
 
 func quit() -> void:
