@@ -2,6 +2,7 @@ extends Node2D
 
 signal level_changed(level)
 signal score_changed(score)
+signal high_score_surpassed
 
 export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
@@ -243,7 +244,9 @@ func disable_slow_motion() -> void:
 func _on_score_changed(score: int):
 	if not has_surpassed_high_score:
 		if score > Global.high_score:
-			audio_stream_player.stream = high_score_sound
-			audio_stream_player.play()
-			
 			has_surpassed_high_score = true
+			emit_signal("high_score_surpassed")
+
+func _on_high_score_surpassed() -> void:
+	audio_stream_player.stream = high_score_sound
+	audio_stream_player.play()
