@@ -76,6 +76,7 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	quit()
 
 func instance(Scene : PackedScene, position : Vector2):
 	var scene := Scene.instance()
@@ -199,8 +200,6 @@ func quit() -> void:
 	
 	if score > Global.high_score:
 		Global.high_score = score
-	
-	Global.save()
 		
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(Screens.MAIN_MENU_SCENE)
