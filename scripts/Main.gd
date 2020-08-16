@@ -24,6 +24,7 @@ onready var spawner : Path2D = $Spawner
 onready var spawn_position : PathFollow2D = $Spawner/Position
 
 onready var pause_menu: Control = $HUDLayer/PauseMenu
+onready var game_over_screen: Control = $HUDLayer/GameOverScreen
 
 onready var flash_animation_player: AnimationPlayer = $HUDLayer/Flash/AnimationPlayer
 
@@ -172,7 +173,10 @@ func instance_explosion() -> void:
 	explosion.play()
 
 func on_explosion_animation_finished() -> void:
-	quit()
+	end_game()
+
+func end_game() -> void:
+	game_over_screen.show()
 
 func quit() -> void:
 	if Global.starting_level == 1:
