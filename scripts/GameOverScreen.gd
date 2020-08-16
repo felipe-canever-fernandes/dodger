@@ -4,6 +4,9 @@ extends Control
 var score := 0 setget set_score
 var level := 0 setget set_level
 
+onready var _transition: Transition = $Transition
+onready var _container: Container = $CenterContainer
+
 onready var _score_label: Label = $CenterContainer/VBoxContainer/ScoreLabel
 onready var _high_score_label: Label = \
 		$CenterContainer/VBoxContainer/HighScoreLabel
@@ -13,6 +16,8 @@ onready var _high_level_label: Label = \
 		$CenterContainer/VBoxContainer/HighLevelLabel
 
 func _ready() -> void:
+	_transition.container = _container
+	
 	_high_score_label.text = "High Score: %s" % Global.high_score
 	_high_level_label.text = "High Level: %s" % Global.high_level
 
@@ -23,6 +28,7 @@ func set_level(value: int) -> void:
 	_level_label.text = "Level: %s" % value
 
 func _on_NewGameButton_pressed() -> void:
+	yield(_transition.play(), "completed")
 	_create_new_game()
 
 func _on_MainMenuButton_pressed() -> void:
