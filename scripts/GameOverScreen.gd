@@ -46,3 +46,4 @@ func _on_visibility_changed():
 
 func _set_up() -> void:
 	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
