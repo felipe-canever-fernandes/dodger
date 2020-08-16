@@ -5,6 +5,7 @@
 [ext_resource path="res://menus/BackgroundOverlay.tscn" type="PackedScene" id=3]
 
 [node name="GameOverScreen" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -95,5 +96,6 @@ margin_top = 202.0
 margin_right = 65.0
 margin_bottom = 224.0
 text = "Main Menu"
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

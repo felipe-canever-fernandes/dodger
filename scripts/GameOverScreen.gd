@@ -39,3 +39,10 @@ func _create_new_game() -> void:
 func _go_to_main_menu() -> void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(Screens.MAIN_MENU_SCENE)
+
+func _on_visibility_changed():
+	if visible:
+		_set_up()
+
+func _set_up() -> void:
+	get_tree().paused = true
