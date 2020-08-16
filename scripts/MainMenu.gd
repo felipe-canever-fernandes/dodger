@@ -52,3 +52,7 @@ func update_high_score_label() -> void:
 
 func update_high_level_label() -> void:
 	high_level_label.text = "High Level: " + str(Global.high_level)
+
+func _on_AboutButton_pressed() -> void:
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene_to(Screens.ABOUT_SCREEN_SCENE)

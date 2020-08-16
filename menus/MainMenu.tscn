@@ -91,6 +91,7 @@ margin_right = 128.0
 margin_bottom = 268.0
 text = "Reset High Level"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/AboutButton" to="." method="_on_AboutButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetHighScoreButton" to="." method="_on_ResetHighScoreButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetHighLevelButton" to="." method="_on_ResetHighLevelButton_pressed"]
