@@ -27,6 +27,8 @@ func _on_ResetHighLevelButton_pressed() -> void:
 	Global.high_level = 1
 
 func _ready() -> void:
+	OS.window_size = OS.get_screen_size()
+	
 	# warning-ignore:return_value_discarded
 	Global.connect("high_score_changed", self, "on_high_score_changed")
 	update_high_score_label()
