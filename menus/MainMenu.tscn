@@ -32,9 +32,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 256.0
-margin_top = 59.0
+margin_top = 46.0
 margin_right = 384.0
-margin_bottom = 301.0
+margin_bottom = 314.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,42 +47,48 @@ margin_right = 128.0
 margin_bottom = 98.0
 text = "New Game"
 
-[node name="QuitButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
+[node name="AboutButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 102.0
 margin_right = 128.0
 margin_bottom = 124.0
+text = "About"
+
+[node name="QuitButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 150.0
 text = "Quit"
 
 [node name="Space" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 128.0
+margin_top = 154.0
 margin_right = 128.0
-margin_bottom = 146.0
+margin_bottom = 172.0
 align = 1
 
 [node name="HighScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 150.0
+margin_top = 176.0
 margin_right = 128.0
-margin_bottom = 168.0
+margin_bottom = 194.0
 text = "High Score"
 align = 1
 
 [node name="ResetHighScoreButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 172.0
+margin_top = 198.0
 margin_right = 128.0
-margin_bottom = 194.0
+margin_bottom = 220.0
 text = "Reset High Score"
 
 [node name="HighLevelLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 198.0
+margin_top = 224.0
 margin_right = 128.0
-margin_bottom = 216.0
+margin_bottom = 242.0
 text = "High Level"
 align = 1
 
 [node name="ResetHighLevelButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 220.0
+margin_top = 246.0
 margin_right = 128.0
-margin_bottom = 242.0
+margin_bottom = 268.0
 text = "Reset High Level"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
