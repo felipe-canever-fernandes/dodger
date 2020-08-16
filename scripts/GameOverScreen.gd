@@ -32,6 +32,7 @@ func _on_NewGameButton_pressed() -> void:
 	_create_new_game()
 
 func _on_MainMenuButton_pressed() -> void:
+	yield(_transition.play(), "completed")
 	_go_to_main_menu()
 
 func _create_new_game() -> void:
