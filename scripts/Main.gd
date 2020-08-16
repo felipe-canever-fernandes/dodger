@@ -241,7 +241,7 @@ func disable_slow_motion() -> void:
 	audio_stream_player.stream = player.powerup_over_sound
 	audio_stream_player.play()
 
-func _on_score_changed(score: int):
+func _on_score_changed(_score: int):
 	if not has_surpassed_high_score:
 		if score > Global.high_score:
 			has_surpassed_high_score = true
