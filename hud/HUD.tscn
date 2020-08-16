@@ -103,4 +103,5 @@ __meta__ = {
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+[connection signal="hide" from="." to="." method="_on_hide"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

@@ -23,6 +23,7 @@ onready var slow_motion_background: ColorRect = $BackgroundLayer/SlowMotion
 onready var spawner : Path2D = $Spawner
 onready var spawn_position : PathFollow2D = $Spawner/Position
 
+onready var hud: Control = $HUDLayer/HUD
 onready var pause_menu: Control = $HUDLayer/PauseMenu
 onready var game_over_screen: Control = $HUDLayer/GameOverScreen
 
@@ -176,6 +177,8 @@ func on_explosion_animation_finished() -> void:
 	end_game()
 
 func end_game() -> void:
+	hud.call_deferred("hide")
+	
 	game_over_screen.score = score
 	game_over_screen.level = level
 	

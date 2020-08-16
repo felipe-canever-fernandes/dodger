@@ -1,6 +1,8 @@
 extends Control
 class_name HUD
 
+onready var stats := $Stats/StatsContainer
+
 onready var level_label := $Stats/StatsContainer/HBoxContainer/LevelContainer/LevelLabel
 onready var high_level_label := $Stats/StatsContainer/HBoxContainer/LevelContainer/HighLevelLabel
 
@@ -30,3 +32,7 @@ func _on_Main_score_changed(score : int) -> void:
 
 func _on_MessageTimer_timeout():
 	level_message_label.visible = false
+
+func _on_hide() -> void:
+	stats.hide()
+	level_message_label.hide()
