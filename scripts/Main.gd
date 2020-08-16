@@ -7,6 +7,8 @@ export(PackedScene) onready var Player : PackedScene
 export(PackedScene) onready var Enemy : PackedScene
 export(Array, PackedScene) onready var powerup_scenes: Array
 export(PackedScene) onready var explosion_scene: PackedScene
+
+export(AudioStream) var high_score_sound: AudioStream
 export(AudioStream) var explosion_sound: AudioStream
 
 export(float, 0, 1) var shield_spawn_chance := 0.05
@@ -37,6 +39,8 @@ var random := RandomNumberGenerator.new()
 var level : int setget set_level
 var score : int setget set_score
 
+var has_surpassed_high_score := false
+
 var player : Player
 
 func set_level(value : int) -> void:
@@ -57,6 +61,9 @@ func _ready() -> void:
 	
 	self.level = Global.starting_level
 	self.score = 0
+	
+	if Global.high_score == 0:
+		has_surpassed_high_score = true
 	
 	instance_player()
 	make_spawner()
@@ -232,3 +239,11 @@ func disable_slow_motion() -> void:
 	
 	audio_stream_player.stream = player.powerup_over_sound
 	audio_stream_player.play()
+
+func _on_score_changed(score: int):
+	if not has_surpassed_high_score:
+		if score > Global.high_score:
+			audio_stream_player.stream = high_score_sound
+			audio_stream_player.play()
+			
+			has_surpassed_high_score = true
