@@ -3,6 +3,12 @@ extends Control
 onready var items: Container = $Container/Items
 onready var confirmation_container: Container = $Container/ConfirmationContainer
 
+onready var _transition: Transition = $Transition
+onready var _container: Container = $Container
+
+func _ready() -> void:
+	_transition.container = _container
+
 func _input(_event : InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle_visibility()
@@ -22,6 +28,8 @@ func _on_MainMenuButton_pressed() -> void:
 	show_confirmation()
 
 func _on_YesButton_pressed() -> void:
+	yield(_transition.play(), "completed")
+	
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(Screens.MAIN_MENU_SCENE)
 
