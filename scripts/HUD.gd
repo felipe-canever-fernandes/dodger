@@ -30,6 +30,11 @@ func _on_Main_level_changed(level : int) -> void:
 func _on_Main_score_changed(score : int) -> void:
 	score_label.text = "Score: " + str(score)
 
+func _on_Main_high_score_surpassed() -> void:
+	level_message_label.visible = true
+	level_message_label.text = "NEW HIGH SCORE"
+	message_timer.start()
+
 func _on_MessageTimer_timeout():
 	level_message_label.visible = false
 
