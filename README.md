@@ -4,9 +4,9 @@ A simple 2D game made in the Godot Engine where the player has to avoid being hi
 
 ![Dodger](https://i.imgur.com/lGzTklj.png)
 
-You are a spaceship in this game, and your goal is to stay alive for as long as possible. As time goes on, the number of asteroids coming at you will increase, and, as the levels go up, the asteroids' speed will also increase. The longer will stay alive, the more points you make. Fortunately, every once in a while, the game will give you one of two possible kinds of power-ups that you can use for a limited time: shield or slow motion.
+You are a spaceship in this game, and your goal is to stay alive for as long as possible. As time goes on, the number of asteroids coming at you will increase, and, as the levels go up, the speed of the asteroid will also increase. The longer will stay alive, the more points you score. Fortunately, every once in a while, the game will give you one of two possible kinds of power-ups that you can use for a limited time: a shield or slow motion.
 
-This game was made in the [Godot Engine](https://godotengine.org/), a "2D and 3D, cross-platform, free and open-source game engine released under the MIT license" that uses GDScript as its own scripting language.
+This game was made in the [Godot Engine](https://godotengine.org/), a "2D and 3D, cross-platform, free and open-source game engine released under the MIT license" that uses GDScript as its scripting language.
 
 ![Godot](https://i.imgur.com/PhBqFv8.png)
 
@@ -14,14 +14,14 @@ This game was made in the [Godot Engine](https://godotengine.org/), a "2D and 3D
 
 ### Launching the Game
 
-To start playing the game, download the binary release and run ```Dodger.exe```, making sure ```Dodger.pck``` is in the same folder. When you launch the game for the first time, a ```save.json``` file containing the save information will be created in the same folder as the game files. This file can be edited in any text editor and contains your high score and high level. Don't cheat. :) You can start a new game by selecting the appropriate option in the main menu.
+To start playing the game, download the binary release, run ```Dodger.exe``` and make sure ```Dodger.pck``` is in the same folder. When you launch the game for the first time, a ```save.json``` file containing the save information will be created in the same folder as the game files. This file can be edited in any text editor and contains your high score and highest level you got to. Don't cheat. :) You can start a new game by selecting the appropriate option in the main menu.
 
 
 ![Main Menu](https://i.imgur.com/N7N2nJj.png)
 
 ### Playing the Game
 
-Once you've started a new game, all you have to do is stay alive for long as possible by avoiding being hit by the asteroids. As time goes on, your score will go up, but so will the number of asteroids flying across the screen. Avoid them, and you will also start going up levels: the higher the level, the faster the asteroids. From time to time, the game will spawn power-ups that you can pick up to help you stay alive for longer.
+Once you've started a new game, all you have to do is stay alive for long as possible by avoiding getting hit by the asteroids. As time goes on, your score will go up, but so will the number of asteroids flying across the screen. Avoid them, and you will also start going up levels: the higher the level, the faster the asteroids. From time to time, the game will spawn power-ups that you can pick up to help you stay alive for longer.
 
 ![In-game](https://i.imgur.com/Fyakgsb.png)
 
