@@ -4,7 +4,7 @@ A simple 2D game made in the Godot Engine where the player has to avoid being hi
 
 ![Dodger](https://i.imgur.com/lGzTklj.png)
 
-You are a spaceship in this game, and your goal is to stay alive for as long as possible. As time goes on, the number of asteroids coming at you will increase, and, as the levels go up, the speed of the asteroid will also increase. The longer will stay alive, the more points you score. Fortunately, every once in a while, the game will give you one of two possible kinds of power-ups that you can use for a limited time: a shield or slow motion.
+You are a spaceship in this game, and your goal is to stay alive for as long as possible. The longer you stay alive, the more the number of asteroids coming at you will increase, and, as the levels go up, the speed of the asteroid will also increase. The longer will stay alive, the more points you score. Fortunately, every once in a while, the game will give you one of two possible kinds of items that you can use for a limited time: a shield or a slow motion power-up.
 
 This game was made in the [Godot Engine](https://godotengine.org/), a "2D and 3D, cross-platform, free and open-source game engine released under the MIT license" that uses GDScript as its scripting language.
 
@@ -21,27 +21,27 @@ To start playing the game, download the binary release, run ```Dodger.exe``` and
 
 ### Playing the Game
 
-Once you've started a new game, all you have to do is stay alive for long as possible by avoiding getting hit by the asteroids. As time goes on, your score will go up, but so will the number of asteroids flying across the screen. Avoid them, and you will also start going up levels: the higher the level, the faster the asteroids. From time to time, the game will spawn power-ups that you can pick up to help you stay alive for longer.
+Once you've started a new game, all you have to do is stay alive for as long as possible by avoiding getting hit by the asteroids. The longer you stay alive, the more your score will increase, but so will the number of asteroids flying across the screen. Avoid them, and you will also start going up levels: the higher the level, the faster the asteroids. From time to time, the game will spawn power-ups that you can pick up to help you stay alive for longer.
 
 ![In-game](https://i.imgur.com/Fyakgsb.png)
 
-You can either get a shield, which gives you invicibility for a limited time, or slow motion, which, as the name suggests, makes everything around you go slower in time. Should you get hit by an asteroid - and you will :) -, the game will be over and your score will be saved.
+You can either get a shield, which gives you invicibility for a limited time, or a slow motion power-up, which, as the name suggests, slows down time. Should you get hit by an asteroid - and you will :) -, the game will end and your score will be saved.
 
 ![Game Over](https://i.imgur.com/U3jEcrG.png)
 
-If you start a new game, and in case you passed at least Level 1, you will be prompted to either start a new game from Level 1 or continue from the level you died at. However, if you choose the second option, the game won't save your score when you die. If you choose option one, you will have the chance to get a new high score by trying to stay alive for longer than you have before. Everytime you die, the game will save your score and the level you died at in case you beat your previous high score and high level. You can reset either your high score or your high level at any time in the main menu.
+If you start a new game, and in case you had gotten past the first level, you will be prompted to either start a new game from Level 1 or continue from the level you died at. However, if you choose the second option, the game won't save your score when you die. If you choose option one, you will have the chance to get a new high score by trying to stay alive for longer than you have before. Everytime you die, the game will save your score and level, given that you got a higher score and got to a higher level than your previous record. You can reset either your high score or your high level at any time in the main menu.
 
 ![New Game](https://i.imgur.com/kN8nMBc.png)
 
 ## Usage
 
-In case you want to edit the game yourself, you will need to install the Godot game engine, which can be found on [the official website](https://godotengine.org/download) or on [Steam](https://store.steampowered.com/app/404790/Godot_Engine/). This project needs at least version 3.0.
+If you want to edit the game, you will need to install the Godot game engine, which can be found on [the official website](https://godotengine.org/download) or on [Steam](https://store.steampowered.com/app/404790/Godot_Engine/). This project requires at least version 3.0.
 
 ![GDScript](https://i.imgur.com/upPkXPp.png)
 
 ## Contributing
 
-The game is considered finished, so I won't be taking any suggestions to improve it any further. But feel free to report any bugs you find or to correct them yourself.
+The game is considered finished, so I won't be taking any suggestions to improve it further. But feel free to report any bugs you find or to fix them.
 
 ## Credits
 
