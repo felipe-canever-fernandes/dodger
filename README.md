@@ -45,7 +45,7 @@ The game is considered finished, so I won't be taking any suggestions to improve
 
 ## Credits
 
-The font used in the game is VP Pixel Simplified by [VP Type](https://www.myfonts.com/foundry/Val_Kalinic/). The sprites were made by me in [Aseprite](https://github.com/aseprite/aseprite). The sounds were generated in [Bfxr](https://www.bfxr.net/).
+The font used in the game is VP Pixel Simplified by [VP Type](https://www.myfonts.com/foundry/Val_Kalinic/). The sprites were made by me in [Aseprite](https://github.com/aseprite/aseprite). The sounds were generated in [Bfxr](https://www.bfxr.net/). Special thanks to my friend Benjamin for suggesting improvements to the wording of this document.
 
 ## License
 
