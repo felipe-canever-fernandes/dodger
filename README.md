@@ -2,6 +2,8 @@
 
 A simple 2D game made in the Godot Engine where the player has to avoid being hit by asteroids for as long as possible.
 
+I decided to make this game after finding [I Need Practice Programming": 49 Ideas for Game Clones to Code](https://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/) online, which lists 49 simple video game projects to create. *Dodger* is the first game on the list.
+
 ![Dodger](https://i.imgur.com/lGzTklj.png)
 
 You are a spaceship in this game, and your goal is to stay alive for as long as possible. The longer you stay alive, the more the number of asteroids coming at you will increase, and, as the levels go up, the speed of the asteroid will also increase. The longer will stay alive, the more points you score. Fortunately, every once in a while, the game will give you one of two possible kinds of items that you can use for a limited time: a shield or a slow motion power-up.
